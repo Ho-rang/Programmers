@@ -1,0 +1,42 @@
+#include <string>
+#include <vector>
+#include <algorithm>
+
+using namespace std;
+
+char number[] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+
+string solution(int n, int t, int m, int p)
+{
+	string answer = "";
+
+	string temp = "";
+	
+	for (int i = 0; temp.size() < t * m; i++)
+	{
+		int num = i;
+
+		int a, b;
+		vector<int> trans_num;
+
+		do{
+			a = num / n;
+			b = num - a * n;
+
+			trans_num.push_back(b);
+
+			num = a;
+
+		}while(num > 0);
+
+		reverse(trans_num.begin(),trans_num.end());
+
+		for(int j : trans_num)
+			temp += number[j];
+	}
+
+	for (int i = p - 1; i < t*m; i += m)
+		answer += temp[i];
+	
+	return answer;
+}
