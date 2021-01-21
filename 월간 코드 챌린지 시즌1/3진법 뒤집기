@@ -1,0 +1,33 @@
+#include <string>
+#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+int solution(int n) {
+	int answer = 0;
+
+	vector<int> v;
+	while (true)
+	{
+		v.push_back(n % 3);
+
+		n /= 3;
+		if (n == 0)
+			break;
+	}
+	reverse(v.begin(), v.end());
+
+	auto p = v.begin();
+
+	int x = 1;
+
+	while (p != v.end())
+	{
+		answer += *p * x;
+		x *= 3;
+		p++;
+	}
+
+	return answer;
+}
