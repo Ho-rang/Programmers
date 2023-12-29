@@ -14,7 +14,7 @@ int solution(std::string dirs)
 
 	int answer = 0;
 
-	char passedRoad[10][10] = { 0 };
+	char passedRoad[11][11] = { 0 };
 
 	int y = 5;
 	int x = 5;
@@ -51,8 +51,8 @@ int solution(std::string dirs)
 				break;
 		}
 
-		if (ny < 0 || ny > 9 ||
-			nx < 0 || nx > 9)
+		if (ny < 0 || ny > 10 ||
+			nx < 0 || nx > 10)
 			continue;
 
 		if ((passedRoad[y][x] & flag) == NONE)
