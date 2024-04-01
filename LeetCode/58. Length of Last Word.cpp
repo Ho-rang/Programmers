@@ -9,7 +9,7 @@ public:
 		int len = i;
 		for (; i >= 0; i--)
 		{
-			if (i != ' ')
+			if (s[i] != ' ')
 			{
 				len = i;
 				break;
@@ -18,12 +18,12 @@ public:
 
 		for (; i >= 0; i--)
 		{
-			if (i == ' ')
+			if (s[i] == ' ')
 			{
 				return len - i;
 			}
 		}
 
-		return 1;
+		return len + 1;
 	}
 };
