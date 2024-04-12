@@ -5,9 +5,6 @@ class Solution
 public:
 	vector<int> deckRevealedIncreasing(vector<int>& deck)
 	{
-		vector<int> result;
-		result.reserve(deck.size());
-
 		ranges::sort(deck);
 
 		deque<int> dq;
@@ -19,10 +16,6 @@ public:
 			dq.push_front(deck[i]);
 		}
 
-		
-		result;
-		
-
-		return (dq.begin(), dq.end());
+		return { dq.begin(), dq.end() };
 	}
 };
