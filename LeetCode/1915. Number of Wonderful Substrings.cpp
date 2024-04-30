@@ -1,11 +1,12 @@
 #include "pch.h"
 
-class Solution {
+class Solution 
+{
 public:
 	long long wonderfulSubstrings(string word) 
 	{
-		vector<long long> cnt(1024);
-		cnt[0] = 1;
+		vector<long long> count(1024);
+		count[0] = 1;
 
 		int curState = 0;
 		long long result = 0;
@@ -14,15 +15,15 @@ public:
 		{
 			curState ^= 1 << (c - 'a');
 
-			result += cnt[curState];
+			result += count[curState];
 
 			for (char odd = 'a'; odd <= 'j'; odd++) 
 			{
 				int oddState = curState ^ (1 << (odd - 'a'));
-				result += cnt[oddState];
+				result += count[oddState];
 			}
 
-			cnt[curState]++;
+			count[curState]++;
 		}
 
 		return result;
